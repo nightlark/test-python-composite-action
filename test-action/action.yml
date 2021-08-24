@@ -14,5 +14,6 @@ runs:
   steps:
     - run: |
         import sys
+        import py-action-import
         print(sys.platform)
       shell: python
