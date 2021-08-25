@@ -18,16 +18,16 @@ runs:
         action_dir = os.path.dirname(__file__)
         for fp in os.listdir(action_dir):
           print("========" + fp + "========")
-          with open(os.path.join(action_dir, fp), 'r') as f:
-            if os.path.isfile(os.path.join(action_dir, fp)):
+          if os.path.isfile(os.path.join(action_dir, fp)):
+            with open(os.path.join(action_dir, fp), 'r') as f:
               print(f.read())
-            else:
-              sub_dir = os.path.join(action_dir, fp)
-              for fp2 in os.listdir(sub_dir):
-                print("========" + fp2 + "========")
+          else:
+            sub_dir = os.path.join(action_dir, fp)
+            for fp2 in os.listdir(sub_dir):
+              print("========" + fp2 + "========")
+              if os.path.isfile(os.path.join(sub_dir, fp2)):
                 with open(os.path.join(sub_dir, fp2), 'r') as f2:
-                  if os.path.isfile(os.path.join(sub_dir, fp2)):
-                    print(f2.read())
-                  else:
-                    print("subsub_dir: " + f2)
+                  print(f2.read())
+              else:
+                print("subsub_dir: " + f2)
       shell: python
