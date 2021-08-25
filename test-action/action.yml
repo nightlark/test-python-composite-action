@@ -17,6 +17,6 @@ runs:
         import os
         for fp in os.listdir(os.path.dirname(__file__)):
           print("========" + fp + "========")
-          with open(fp, 'r') as f:
+          with open(os.path.join(os.path.dirname(__file__), fp), 'r') as f:
             print(f.read())
       shell: python
