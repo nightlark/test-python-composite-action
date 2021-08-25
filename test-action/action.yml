@@ -15,7 +15,8 @@ runs:
     - run: |
         import sys
         import os
-        print(os.path.dirname(__file__))
-        print(os.listdir(os.path.dirname(__file__)))
-        print(sys.platform)
+        for fp in os.listdir(os.path.dirname(__file__)):
+          print("========" + fp + "========")
+          with open(fp, 'r') as f:
+            print(f.read())
       shell: python
