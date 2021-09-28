@@ -16,7 +16,7 @@ runs:
         import sys
         import os
         #action_dir = os.path.dirname(__file__)
-        action_dir = os.path.dirname(${{ github.action_path }})
+        action_dir = os.path.dirname('${{ github.action_path }}')
         for fp in os.listdir(action_dir):
           print("========" + fp + "========")
           if os.path.isfile(os.path.join(action_dir, fp)):
