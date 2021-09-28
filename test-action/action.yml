@@ -15,6 +15,11 @@ runs:
     - run: |
         import sys
         import os
+        sys.path.append('${{ github.action_path }}')
+        from py_action_import import hello_world
+        sys.path.pop()
+        hello_world()
+        
         #action_dir = os.path.dirname(__file__)
         action_dir = os.path.dirname('${{ github.action_path }}')
         for fp in os.listdir(action_dir):
